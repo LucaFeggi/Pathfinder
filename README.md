@@ -98,7 +98,7 @@ Pathfinder
 
 ## 🏁 Project idea
 
-[cite_start]The idea for this pathfinding implementation was inspired by an algorithmic challenge received as part of the **Race Up** assignment from **Università degli Studi di Padova**[cite: 2, 3].
+The idea for this pathfinding implementation was inspired by an algorithmic challenge received as part of the **Race Up** assignment from **Università degli Studi di Padova**.
 
 <img width="1086" height="1368" alt="assignment" src="https://github.com/user-attachments/assets/0e13ce34-409e-474f-b909-914abdba0333" />
 
