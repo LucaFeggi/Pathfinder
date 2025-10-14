@@ -62,7 +62,7 @@ Pathfinder
 
 > 📝 **Notes:**  
 > - **SDL2** is automatically configured on both Windows and Linux — no manual setup required.  
-> - Run all commands from the **project root directory**.
+> - Make sure to run all commands from the **project root directory**.
 
 ---
 
