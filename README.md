@@ -60,6 +60,9 @@ Pathfinder
 
 ## 🔨 Build instructions
 
+> 📝 **Note:**  
+> SDL2 is automatically configured for both Windows and Linux — no manual installation required.
+
 ### 🪟 Windows (Visual Studio)
 
 1. **Open a Developer Command Prompt** or use CMake GUI.  
@@ -77,12 +80,12 @@ Pathfinder
    ```bash
    build/Release/Pathfinder.exe
    ```
-
-> The `SDL2.dll` and `assets/` folder are automatically copied to the build directory.
-
+   
 ---
 
 ### 🐧 Linux
+
+Note: make sure to be on **X11** dysplay server protocol.
 
 1. **Generate build files:**
    ```bash
@@ -94,11 +97,9 @@ Pathfinder
    ```
 3. **Run the executable:**
    ```bash
-   ./build/Release/Pathfinder
+   ./build/Pathfinder
    ```
-
-> SDL2 headers and libraries are included under `externals/SDL2-2.32.10`, so no system installation is required.
-
+   
 ---
 
 ## 💡 Project idea
