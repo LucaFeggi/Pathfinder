@@ -26,57 +26,40 @@ set(INTERNAL_INCLUDES
 
 # --- SDL2 Setup ---
 if(WIN32)
-    # Windows: use bundled SDL2
-    set(EXTERNAL_INCLUDES "${PROJECT_SOURCE_DIR}/externals/SDL2-2.32.10/include")
-    set(SDL2_LIB_AND_DLL_DIR "${PROJECT_SOURCE_DIR}/externals/SDL2-2.32.10/lib/x64")
-    
-    set(SDL_LIBRARIES SDL2 SDL2main)
+    # Percorsi per SDL2 su Windows
+    set(SDL2_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/externals/SDL2-2.32.10/include")
+    set(SDL2_LIB_DIR "${PROJECT_SOURCE_DIR}/externals/SDL2-2.32.10/lib/x64")
+
+    # Verifica presenza file .lib
+    if(NOT EXISTS "${SDL2_LIB_DIR}/SDL2.lib")
+        message(FATAL_ERROR "SDL2.lib non trovato in ${SDL2_LIB_DIR}")
+    endif()
+
+    # Librerie da linkare (percorso completo)
+    set(SDL2_LIBRARIES
+        "${SDL2_LIB_DIR}/SDL2.lib"
+        "${SDL2_LIB_DIR}/SDL2main.lib"
+    )
 
 elseif(UNIX)
-    # Linux only
-    find_program(PKG_CONFIG_EXECUTABLE pkg-config)
-    if(NOT PKG_CONFIG_EXECUTABLE)
-        message(FATAL_ERROR
-            "pkg-config is required to build on Linux but was not found.\n"
-            "Install it using your package manager, e.g., on Debian/Ubuntu:\n"
-            "  sudo apt install pkg-config"
-        )
-    endif()
-
-    # Find SDL2 using pkg-config
+    # Linux: trova SDL2 tramite pkg-config
     find_package(PkgConfig REQUIRED)
-    pkg_check_modules(SDL2 sdl2)
-
-    if(NOT SDL2_FOUND)
-        message(STATUS "SDL2 not found. Attempting to install...")
-
-        # Linux (Debian/Ubuntu)
-        execute_process(COMMAND sudo apt-get update)
-        execute_process(COMMAND sudo apt-get install -y libsdl2-dev)
-
-        # Retry finding SDL2
-        pkg_check_modules(SDL2 sdl2 REQUIRED)
-    endif()
-
-    set(SDL_LIBRARIES ${SDL2_LIBRARIES})
+    pkg_check_modules(SDL2 REQUIRED sdl2)
+    set(SDL2_INCLUDE_DIR ${SDL2_INCLUDE_DIRS})
+    set(SDL2_LIBRARIES ${SDL2_LIBRARIES})
 endif()
 
 # --- Create executable ---
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} "${PROJECT_SOURCE_DIR}/src/main.cpp")
 
-# --- Include directories per target ---
-target_include_directories(${PROJECT_NAME} PRIVATE ${INTERNAL_INCLUDES})
-
-if(WIN32)
-    target_include_directories(${PROJECT_NAME} PRIVATE ${EXTERNAL_INCLUDES})
-    link_directories(${SDL2_LIB_AND_DLL_DIR})
-elseif(UNIX)
-    target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
-    link_directories(${SDL2_LIBRARY_DIRS})
-endif()
+# --- Include directories ---
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${INTERNAL_INCLUDES}
+    ${SDL2_INCLUDE_DIR}
+)
 
 # --- Link libraries ---
-target_link_libraries(${PROJECT_NAME} PRIVATE ${SDL_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${SDL2_LIBRARIES})
 
 # --- Output directories ---
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/$<CONFIG>)
@@ -89,16 +72,16 @@ if(WIN32)
     set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
     set(CMAKE_SUPPRESS_REGENERATION true)
 
-    # Copy SDL2.dll next to executable
+    # Copia SDL2.dll accanto all'eseguibile
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${SDL2_LIB_AND_DLL_DIR}/SDL2.dll"
+            "${SDL2_LIB_DIR}/SDL2.dll"
             "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
         COMMENT "Copying SDL2.dll to build directory"
     )
 endif()
 
-# --- Copy assets (all platforms) ---
+# --- Copy assets ---
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
         "${PROJECT_SOURCE_DIR}/assets"
