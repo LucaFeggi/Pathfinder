@@ -61,23 +61,28 @@ Pathfinder
 ## 🔨 Build Instructions
 
 >  ⚠️ **Attention**
-> - **SDL2** is automatically configured on both Windows and Linux — no manual setup required.  
-> - Make sure to run all the next commands from the **project root directory** ( ../Pathfinder/ ).
+> - **SDL2** is automatically configured on both Windows and Linux — no manual setup required.
 
 ## 🪟 Windows (Visual Studio)
 
-1. **Open a Developer Command Prompt** or use the **CMake GUI**.  
-2. **Generate project files:**
+1. **Open cmd**.
+2. ```bash
+   git clone https://github.com/LucaFeggi/Pathfinder
+   ```
+3. ```bash
+   cd Pathfinder
+   ```
+4. **Generate project files:**
    ```bash
    cmake -B build -G "Visual Studio 17 2022"
    ```
-3. **Build the project:**
+5. **Build the project:**
    ```bash
    cmake --build build --config Release
    ```
    Or open `build/Pathfinder.sln` in Visual Studio and build manually.
 
-4. **Run the executable:**
+6. **Run the executable:**
    ```bash
    build\Release\Pathfinder.exe
    ```
