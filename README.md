@@ -47,6 +47,7 @@ Pathfinder
 │   └── renderer/
 │   	└── renderer.hpp / renderer.cpp
 ├── CMakeLists.txt
+├── LICENCE
 └── README.md
 ```
 
@@ -65,11 +66,11 @@ Pathfinder
    ```bash
    cmake --build build --config Release
    ```
-   or open `build/Prova.sln` in Visual Studio and build manually.
+   or open `build/Pathfinder.sln` in Visual Studio and build manually.
 
 4. **Run the executable:**
    ```bash
-   build/Release/Prova.exe
+   build/Release/Pathfinder.exe
    ```
 
 > The `SDL2.dll` and `assets/` folder are automatically copied to the build directory.
@@ -88,7 +89,7 @@ Pathfinder
    ```
 3. **Run the executable:**
    ```bash
-   ./build/Release/Prova
+   ./build/Release/Pathfinder
    ```
 
 > SDL2 headers and libraries are included under `externals/SDL2-2.32.10`, so no system installation is required.
