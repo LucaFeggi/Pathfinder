@@ -4,7 +4,7 @@
 #include "SDL.h"
 
 namespace Input{
-    const enum Commands{
+    enum Commands{
         QUIT,    // Quit the application
         RENDER,  // Toggle rendering
         TOTAL    // Total number of commands
