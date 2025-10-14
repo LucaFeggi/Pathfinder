@@ -66,8 +66,8 @@ Pathfinder
 ## 🪟 Windows (Visual Studio)
 
 1. **Open cmd**
-2. **Clone this repository`**
-   ``bash
+2. **Clone this repository**
+   ```bash
    git clone https://github.com/LucaFeggi/Pathfinder
    ```
 4. **Enter the project root**
