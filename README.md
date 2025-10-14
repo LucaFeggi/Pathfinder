@@ -1,4 +1,4 @@
-# 🧭 A* Pathfinder
+# 🧭 A* pathfinder
 
 A C++ implementation of the **A*** pathfinding algorithm, visualized using **SDL2**.  
 
