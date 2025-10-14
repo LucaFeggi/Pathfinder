@@ -79,7 +79,7 @@ Pathfinder
 
 4. **Run the executable:**
    ```bash
-   build/Release/Pathfinder.exe
+   build\Release\Pathfinder.exe
    ```
 
 ## 🐧 Linux
