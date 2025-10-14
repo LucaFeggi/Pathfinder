@@ -85,7 +85,7 @@ Pathfinder
 
 ### 🐧 Linux
 
-> 🧩 **Note:**  
+> 📝 **Note:**  
 > Make sure you’re running under the **X11 display server** (not Wayland), as SDL2 currently requires it.
 
 1. **Generate build files:**
