@@ -66,23 +66,25 @@ Pathfinder
 ## 🪟 Windows (Visual Studio)
 
 1. **Open cmd**.
-2. ```bash
+2. **Clone this repository`**
+   ``bash
    git clone https://github.com/LucaFeggi/Pathfinder
    ```
-3. ```bash
+4. **Enter the project root**
+   ```bash
    cd Pathfinder
    ```
-4. **Generate project files:**
+5. **Generate project files:**
    ```bash
    cmake -B build -G "Visual Studio 17 2022"
    ```
-5. **Build the project:**
+6. **Build the project:**
    ```bash
    cmake --build build --config Release
    ```
    Or open `build/Pathfinder.sln` in Visual Studio and build manually.
 
-6. **Run the executable:**
+7. **Run the executable:**
    ```bash
    build\Release\Pathfinder.exe
    ```
