@@ -42,7 +42,7 @@ Pathfinder
 │   │   ├── app.hpp / app.cpp
 │   │   ├── window.hpp / window.cpp
 │   │   └── input.hpp / input.cpp
-│   ├── algorithm/
+│   ├── simulation/
 │   │   └── a_star.hpp / a_star.cpp
 │   └── renderer/
 │   	  └── renderer.hpp / renderer.cpp
