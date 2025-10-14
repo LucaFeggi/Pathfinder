@@ -53,7 +53,7 @@ Pathfinder
 
 ---
 
-## ⚙️ Build instructions
+## 🔨 Build instructions
 
 ### 🪟 Windows (Visual Studio)
 
@@ -96,7 +96,7 @@ Pathfinder
 
 ---
 
-## 🏁 Project idea
+## 💡 Project idea
 
 The idea for this pathfinding implementation was inspired by an algorithmic challenge received as part of the **Race Up** assignment from **Università degli Studi di Padova**.
 
