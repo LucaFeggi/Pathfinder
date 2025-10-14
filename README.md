@@ -60,12 +60,15 @@ Pathfinder
 
 ## 🔨 Build instructions
 
-> 📝 **Note:**  
-> SDL2 is automatically configured for both Windows and Linux — no manual installation required.
+> 📝 **Notes:**  
+> - **SDL2** is automatically configured on both Windows and Linux — no manual setup required.  
+> - Run all commands from the **project root directory**.
+
+---
 
 ### 🪟 Windows (Visual Studio)
 
-1. **Open a Developer Command Prompt** or use CMake GUI.  
+1. **Open a Developer Command Prompt** or use the **CMake GUI**. 
 2. **Generate project files:**
    ```bash
    cmake -B build -G "Visual Studio 17 2022"
