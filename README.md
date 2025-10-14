@@ -53,7 +53,7 @@ Pathfinder
 
 ---
 
-## ⚙️ Build Instructions
+## ⚙️ Build instructions
 
 ### 🪟 Windows (Visual Studio)
 
@@ -105,7 +105,7 @@ The idea for this pathfinding implementation was inspired by an algorithmic chal
 
 ---
 
-## 🏆 Final Result: Shortest Path Found
+## 🏆 Final result: shortest path found
 
 A snapshot of the visualization after running the A* algorithm on the circular grid ($K=128$, $H=24$). The highlighted path represents the shortest Euclidean distance found from start to end points.
 
