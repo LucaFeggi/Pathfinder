@@ -45,7 +45,12 @@ Pathfinder
 │   ├── algorithm/
 │   │   └── a_star.hpp / a_star.cpp
 │   └── renderer/
-│   	└── renderer.hpp / renderer.cpp
+│   	  └── renderer.hpp / renderer.cpp
+├── assets/
+│   └── icon/
+│       └── icon.bmp
+├── externals/
+│   └── SDL2-2.32.10/
 ├── CMakeLists.txt
 ├── LICENCE
 └── README.md
