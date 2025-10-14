@@ -36,7 +36,7 @@ s
 Pathfinder
 │
 ├── src/
-│   ├──config.hpp
+│   ├── config.hpp
 │   ├── main.cpp
 │   ├── app/	
 │   │   ├── app.hpp / app.cpp
