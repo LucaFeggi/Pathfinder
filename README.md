@@ -64,8 +64,6 @@ Pathfinder
 > - **SDL2** is automatically configured on both Windows and Linux — no manual setup required.  
 > - Make sure to run all commands from the **project root directory**.
 
----
-
 ## 🪟 Windows (Visual Studio)
 
 1. **Open a Developer Command Prompt** or use the **CMake GUI**.  
@@ -83,8 +81,6 @@ Pathfinder
    ```bash
    build/Release/Pathfinder.exe
    ```
-
----
 
 ## 🐧 Linux
 
