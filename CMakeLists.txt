@@ -33,20 +33,26 @@ if(WIN32)
     set(SDL_LIBRARIES SDL2 SDL2main)
 
 elseif(UNIX)
+    # Linux only
+    find_program(PKG_CONFIG_EXECUTABLE pkg-config)
+    if(NOT PKG_CONFIG_EXECUTABLE)
+        message(FATAL_ERROR
+            "pkg-config is required to build on Linux but was not found.\n"
+            "Install it using your package manager, e.g., on Debian/Ubuntu:\n"
+            "  sudo apt install pkg-config"
+        )
+    endif()
+
+    # Find SDL2 using pkg-config
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(SDL2 sdl2)
 
     if(NOT SDL2_FOUND)
         message(STATUS "SDL2 not found. Attempting to install...")
 
-        if(UNIX AND NOT APPLE)
-            # Linux (Debian/Ubuntu)
-            execute_process(COMMAND sudo apt-get update)
-            execute_process(COMMAND sudo apt-get install -y libsdl2-dev)
-        elseif(APPLE)
-            # macOS
-            execute_process(COMMAND brew install sdl2)
-        endif()
+        # Linux (Debian/Ubuntu)
+        execute_process(COMMAND sudo apt-get update)
+        execute_process(COMMAND sudo apt-get install -y libsdl2-dev)
 
         # Retry finding SDL2
         pkg_check_modules(SDL2 sdl2 REQUIRED)
