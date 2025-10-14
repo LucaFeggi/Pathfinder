@@ -30,7 +30,7 @@ s
 
 ---
 
-## ⚙️ Project Structure
+## ⚙️ Project structure
 
 ```
 Pathfinder
