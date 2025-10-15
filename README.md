@@ -61,7 +61,7 @@ Pathfinder
 ## 🪟 Windows (Visual Studio)
 
 > 📝 **Notes:**
-> - **SDL2** is automatically setupped -- no installation needed.
+> - **SDL2** is automatically setupped ── no installation needed.
 
 1. **Open cmd**
 2. **Clone this repository:**
