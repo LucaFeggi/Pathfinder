@@ -13,4 +13,4 @@ private:
 	SDL_Window *ptr;
 };
 
-#endif
+#endif	// !WINDOW_H
