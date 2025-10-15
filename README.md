@@ -60,7 +60,7 @@ Pathfinder
 
 ## 🔨 Build Instructions
 
->  👀 **Look out** : **SDL2** is automatically configured on both Windows and Linux — no manual setup required.
+>  👀 **Look out:** **SDL2** is automatically configured on both Windows and Linux — no manual setup required.
 
 ## 🪟 Windows (Visual Studio)
 
@@ -90,8 +90,7 @@ Pathfinder
 
 ## 🐧 Linux (Ubuntu/Debian)
 
-> 📝 **Note:**  
-> Make sure you’re running under the **X11 display server** (not Wayland), as SDL2 currently requires it.
+> 📝 **Note:** Make sure you’re running under the **X11 display server** (not Wayland), as SDL2 currently requires it.
 
 1. **Open cmd**
 2. **Clone this repository**
