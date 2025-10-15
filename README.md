@@ -10,8 +10,6 @@ This project implements a visual simulation of the A* pathfinding algorithm over
 The system represents a circular path using discrete Cartesian coordinates, enabling the A* algorithm to operate as it would on a standard 2D grid while maintaining the curvature of the path. This approach facilitates extending the algorithm to handle full circuits with arbitrary shapes,
 since the underlying computations are not tied to a specific coordinate system.
 
-The implementation is modular and composed of two main components:
-s
 ---
 
 ## 🚀 Features
