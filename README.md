@@ -97,7 +97,7 @@ Pathfinder
 1. **Open cmd**
 2. **Download SDL2 (optional):**
    ```bash
-   git clone https://github.com/LucaFeggi/Pathfinder
+   sudo apt install libsdl2-dev
    ```
 3. **Clone this repository:**
    ```bash
