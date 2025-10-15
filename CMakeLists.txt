@@ -42,11 +42,29 @@ if(WIN32)
     )
 
 elseif(UNIX)
-    # Linux: trova SDL2 tramite pkg-config
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules(SDL2 REQUIRED sdl2)
-    set(SDL2_INCLUDE_DIR ${SDL2_INCLUDE_DIRS})
-    set(SDL2_LIBRARIES ${SDL2_LIBRARIES})
+    # Linux: trova SDL2 tramite pkg-config o scarica se non presente
+    find_package(PkgConfig)
+    if(PkgConfig_FOUND)
+        pkg_check_modules(SDL2 sdl2)
+    endif()
+
+    if(NOT SDL2_FOUND)
+        message(STATUS "SDL2 non trovato, download automatico tramite FetchContent...")
+
+        include(FetchContent)
+        FetchContent_Declare(
+            SDL2
+            GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
+            GIT_TAG release-2.30.9 # o versione stabile più recente
+        )
+        FetchContent_MakeAvailable(SDL2)
+
+        set(SDL2_INCLUDE_DIR ${sdl2_SOURCE_DIR}/include)
+        set(SDL2_LIBRARIES SDL2)
+    else()
+        set(SDL2_INCLUDE_DIR ${SDL2_INCLUDE_DIRS})
+        set(SDL2_LIBRARIES ${SDL2_LIBRARIES})
+    endif()
 endif()
 
 # --- Create executable ---
