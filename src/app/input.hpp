@@ -1,5 +1,5 @@
-#ifndef SDL_INPUT_H
-#define SDL_INPUT_H
+#ifndef INPUT_H
+#define INPUT_H
 
 #include "SDL.h"
 
@@ -12,4 +12,4 @@ namespace Input{
 	void poll(const SDL_Event &event, bool *commands);
 }
 
-#endif // !SDL_INPUT_H
+#endif // !INPUT_H
