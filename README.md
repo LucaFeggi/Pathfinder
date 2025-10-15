@@ -60,16 +60,17 @@ Pathfinder
 
 ## 🔨 Build Instructions
 
->  👀 **Look out:** **SDL2** is automatically configured on both Windows and Linux — no manual setup required.
-
 ## 🪟 Windows (Visual Studio)
 
+> 📝 **Note:**
+> - **SDL2** is automatically setupped.
+
 1. **Open cmd**
-2. **Clone this repository**
+2. **Clone this repository:**
    ```bash
    git clone https://github.com/LucaFeggi/Pathfinder
    ```
-3. **Enter the project root**
+3. **Enter the project root:**
    ```bash
    cd Pathfinder
    ```
@@ -89,26 +90,32 @@ Pathfinder
 
 ## 🐧 Linux (Ubuntu/Debian)
 
-> 📝 **Note:** Make sure you’re running under the **X11 display server** (not Wayland), as SDL2 currently requires it.
+> 📝 **Note:**
+> - **SDL2** must be installed on the system, if not already present.
+> - Make sure you’re running under the **X11 display server** (not Wayland), as SDL2 currently requires it.
 
 1. **Open cmd**
-2. **Clone this repository**
+2. **Download SDL2 (optional):**
    ```bash
    git clone https://github.com/LucaFeggi/Pathfinder
    ```
-3. **Enter the project root**
+3. **Clone this repository:**
+   ```bash
+   git clone https://github.com/LucaFeggi/Pathfinder
+   ```
+4. **Enter the project root:**
    ```bash
    cd Pathfinder
    ```
-4. **Generate build files:**
+5. **Generate build files:**
    ```bash
    cmake -B build
    ```
-5. **Compile the project:**
+6. **Compile the project:**
    ```bash
    cmake --build build --config Release
    ```
-6. **Run the executable:**
+7. **Run the executable:**
    ```bash
    ./build/Pathfinder
    ```
