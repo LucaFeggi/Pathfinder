@@ -5,9 +5,9 @@
 
 namespace Input{
     enum Commands{
-        QUIT,    // Quit the application
-        RENDER,  // Toggle rendering
-        TOTAL    // Total number of commands
+        QUIT = 0,
+        RENDER,
+        TOTAL
     };
 	void poll(const SDL_Event &event, bool *commands);
 }
