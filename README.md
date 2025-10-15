@@ -50,8 +50,8 @@ Pathfinder
 ├── externals/
 │   └── SDL2-2.32.10/
 ├── CMakeLists.txt
-├── LICENCE
-└── README.md
+├── README.md
+└── LICENCE
 ```
 
 ---
