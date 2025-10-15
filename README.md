@@ -70,21 +70,21 @@ Pathfinder
    ```bash
    git clone https://github.com/LucaFeggi/Pathfinder
    ```
-4. **Enter the project root**
+3. **Enter the project root**
    ```bash
    cd Pathfinder
    ```
-5. **Generate project files:**
+4. **Generate project files:**
    ```bash
    cmake -B build -G "Visual Studio 17 2022"
    ```
-6. **Build the project:**
+5. **Build the project:**
    ```bash
    cmake --build build --config Release
    ```
    Or open `build/Pathfinder.sln` in Visual Studio and build manually.
 
-7. **Run the executable:**
+6. **Run the executable:**
    ```bash
    build\Release\Pathfinder.exe
    ```
@@ -94,15 +94,24 @@ Pathfinder
 > 📝 **Note:**  
 > Make sure you’re running under the **X11 display server** (not Wayland), as SDL2 currently requires it.
 
-1. **Generate build files:**
+1. **Open cmd**
+2. **Clone this repository**
+   ```bash
+   git clone https://github.com/LucaFeggi/Pathfinder
+   ```
+3. **Enter the project root**
+   ```bash
+   cd Pathfinder
+   ```
+4. **Generate build files:**
    ```bash
    cmake -B build
    ```
-2. **Compile the project:**
+5. **Compile the project:**
    ```bash
    cmake --build build --config Release
    ```
-3. **Run the executable:**
+6. **Run the executable:**
    ```bash
    ./build/Pathfinder
    ```
