@@ -81,7 +81,6 @@ Pathfinder
    ```bash
    cmake --build build --config Release
    ```
-   Or open `build/Pathfinder.sln` in Visual Studio and build manually.
 
 6. **Run the executable:**
    ```bash
