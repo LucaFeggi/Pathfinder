@@ -60,8 +60,8 @@ Pathfinder
 
 ## 🔨 Build Instructions
 
->  ❗️❗️❗️ **Attention** 
-> **SDL2** is automatically configured on both Windows and Linux — no manual setup required.
+>  ⚠️ **Attention**
+>  **SDL2** is automatically configured on both Windows and Linux — no manual setup required.
 
 ## 🪟 Windows (Visual Studio)
 
