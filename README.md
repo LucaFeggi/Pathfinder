@@ -62,7 +62,7 @@ Pathfinder
 
 ## 🪟 Windows (Visual Studio)
 
-> 📝 **Note:**
+> 📝 **Notes:**
 > - **SDL2** is automatically setupped.
 
 1. **Open cmd**
@@ -90,7 +90,7 @@ Pathfinder
 
 ## 🐧 Linux (Ubuntu/Debian)
 
-> 📝 **Note:**
+> 📝 **Notes:**
 > - **SDL2** must be installed on the system, if not already present.
 > - Make sure you’re running under the **X11 display server** (not Wayland), as SDL2 currently requires it.
 
