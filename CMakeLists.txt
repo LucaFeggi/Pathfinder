@@ -26,45 +26,24 @@ set(INTERNAL_INCLUDES
 
 # --- SDL2 Setup ---
 if(WIN32)
-    # Percorsi per SDL2 su Windows
+    # SDL2 paths
     set(SDL2_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/externals/SDL2-2.32.10/include")
     set(SDL2_LIB_DIR "${PROJECT_SOURCE_DIR}/externals/SDL2-2.32.10/lib/x64")
 
-    # Verifica presenza file .lib
+    # Check .lib files presence
     if(NOT EXISTS "${SDL2_LIB_DIR}/SDL2.lib")
         message(FATAL_ERROR "SDL2.lib non trovato in ${SDL2_LIB_DIR}")
     endif()
 
-    # Librerie da linkare (percorso completo)
+    # Linking libraries
     set(SDL2_LIBRARIES
         "${SDL2_LIB_DIR}/SDL2.lib"
         "${SDL2_LIB_DIR}/SDL2main.lib"
     )
 
 elseif(UNIX)
-    # Linux: trova SDL2 tramite pkg-config o scarica se non presente
-    find_package(PkgConfig)
-    if(PkgConfig_FOUND)
-        pkg_check_modules(SDL2 sdl2)
-    endif()
-
-    if(NOT SDL2_FOUND)
-        message(STATUS "SDL2 non trovato, download automatico tramite FetchContent...")
-
-        include(FetchContent)
-        FetchContent_Declare(
-            SDL2
-            GIT_REPOSITORY https://github.com/libsdl-org/SDL.git
-            GIT_TAG release-2.30.9 # o versione stabile più recente
-        )
-        FetchContent_MakeAvailable(SDL2)
-
-        set(SDL2_INCLUDE_DIR ${sdl2_SOURCE_DIR}/include)
-        set(SDL2_LIBRARIES SDL2)
-    else()
-        set(SDL2_INCLUDE_DIR ${SDL2_INCLUDE_DIRS})
-        set(SDL2_LIBRARIES ${SDL2_LIBRARIES})
-    endif()
+    # Check SDL2 presence
+    find_package(SDL2 REQUIRED)
 endif()
 
 # --- Create executable ---
@@ -77,7 +56,11 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 )
 
 # --- Link libraries ---
-target_link_libraries(${PROJECT_NAME} PRIVATE ${SDL2_LIBRARIES})
+if(WIN32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE ${SDL2_LIBRARIES})
+elseif(UNIX)
+    target_link_libraries(${PROJECT_NAME} PRIVATE SDL2::SDL2)
+endif()
 
 # --- Output directories ---
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/$<CONFIG>)
@@ -90,7 +73,7 @@ if(WIN32)
     set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME})
     set(CMAKE_SUPPRESS_REGENERATION true)
 
-    # Copia SDL2.dll accanto all'eseguibile
+    # Copy SDL2.dll in the .exe root
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
             "${SDL2_LIB_DIR}/SDL2.dll"
