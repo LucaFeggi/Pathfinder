@@ -43,7 +43,7 @@ Pathfinder
 │   ├── simulation/
 │   │   └── a_star.hpp / a_star.cpp
 │   └── renderer/
-│   	  └── renderer.hpp / renderer.cpp
+│   	 └── renderer.hpp / renderer.cpp
 ├── assets/
 │   └── icon/
 │       └── icon.bmp
