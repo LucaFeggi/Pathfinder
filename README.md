@@ -130,7 +130,7 @@ The idea for this pathfinding implementation was inspired by an algorithmic chal
 
 ---
 
-## 🏆 Final result: shortest path found
+## 🏆 Final result
 
 A snapshot of the visualization after running the A* algorithm on a semicircular grid ($K=128$, $H=24$). The highlighted path represents the shortest Euclidean distance found from start to end point.
 
