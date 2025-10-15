@@ -38,8 +38,8 @@ Pathfinder
 │   ├── main.cpp
 │   ├── app/	
 │   │   ├── app.hpp / app.cpp
-│   │   ├── window.hpp / window.cpp
-│   │   └── input.hpp / input.cpp
+│   │   ├── input.hpp / input.cpp
+│   │   └── window.hpp / window.cpp
 │   ├── simulation/
 │   │   └── a_star.hpp / a_star.cpp
 │   └── renderer/
