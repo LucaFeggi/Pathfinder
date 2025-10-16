@@ -1,6 +1,7 @@
 #ifndef APP_H
 #define APP_H
 
+#include "input.hpp"
 #include "window.hpp"
 
 #include "../simulation/a_star.hpp"
@@ -15,6 +16,7 @@ public:
 	void run();
 private:
 	A_Star a_star;
+	Input input;
 	std::unique_ptr<Window> window;
 	std::unique_ptr<Renderer> renderer;
 };
