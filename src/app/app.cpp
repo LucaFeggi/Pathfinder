@@ -1,7 +1,5 @@
 #include "app.hpp"
 
-#include "input.hpp"
-
 #include "../config.hpp"
 
 #include "SDL.h"
@@ -24,16 +22,15 @@ App::~App(){
 
 void App::run(){
 	SDL_Event event;
-	bool commands[Input::Commands::TOTAL] = { false };
 	while(true){
 		if(SDL_WaitEvent(&event)){
-			Input::poll(event, commands);
-			if(commands[Input::Commands::QUIT]){
+			input.poll(event);
+			if(input.is_command_active(Commands::QUIT)){
 				return;
 			}
-			if(commands[Input::Commands::RENDER]){
+			if(input.is_command_active(Commands::RENDER)){
 				renderer->render(*window, a_star);
-				commands[Input::Commands::RENDER] = false;
+				input.set_command_inactive(Commands::RENDER);
 			}
 		}
 	}
