@@ -3,13 +3,21 @@
 
 #include "SDL.h"
 
-namespace Input{
-    enum Commands{
-        QUIT = 0,
-        RENDER,
-        TOTAL
-    };
-	void poll(const SDL_Event &event, bool *commands);
-}
+enum Commands{
+    QUIT = 0,
+    RENDER,
+    TOTAL
+};
+
+class Input{
+public:
+    Input();
+    void poll(const SDL_Event &event);
+    bool is_command_active(const Commands comm) const;
+    void set_command_active(const Commands comm);
+    void set_command_inactive(const Commands comm);
+private:
+    bool command[Commands::TOTAL];
+};
 
 #endif // !INPUT_H
