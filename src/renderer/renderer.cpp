@@ -51,7 +51,7 @@ void Renderer::render(const Window &window, const A_Star &a_star){
     if(a_star.path_found()){
         SDL_SetRenderDrawColor(ptr, 255, 0, 0, 255);
         for(size_t i = 1; i < path.size(); ++i){
-            // getting grid coords (x first, y second)
+            // getting grid coords
             int x1 = path[i - 1].first;
             int y1 = path[i - 1].second;
             int x2 = path[i].first;
