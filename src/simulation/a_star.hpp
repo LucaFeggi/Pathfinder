@@ -14,7 +14,7 @@ Finally, it avoids complications with angular wrapping and variable arc lengths 
 
 class A_Star{
 public:
-    A_Star() noexcept;
+    void init();
     void run();
     // Data accessors for rendering
     const std::vector<std::vector<std::pair<float, float>>> &get_node_coordinates() const;

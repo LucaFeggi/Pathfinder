@@ -1,10 +1,8 @@
 #include "window.hpp"
 
 #include <iostream>
-#include <string>
-#include <stdexcept>
 
-Window::Window(){
+bool Window::init(){
     SDL_DisplayMode dm;
     int w, h;
     if(SDL_GetCurrentDisplayMode(0, &dm) != 0){
@@ -16,12 +14,11 @@ Window::Window(){
         h = static_cast<int>(dm.h * 0.667f);
     }
 
-    ptr = SDL_CreateWindow(
-        "Pathfinder",
-        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h,
-        SDL_WINDOW_RESIZABLE | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_HIDDEN
-    );
-    if(ptr == nullptr) throw std::runtime_error(std::string("Failed to create window: ") + SDL_GetError());
+    ptr = SDL_CreateWindow("Pathfinder", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_RESIZABLE | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_HIDDEN);
+    if(ptr == nullptr){
+        std::cerr << "Failed to create window: " << SDL_GetError() << "\n";
+        return false;
+    }
 
     SDL_SetWindowMinimumSize(ptr, w / 5, h / 5);
 
@@ -33,10 +30,12 @@ Window::Window(){
     else{
         std::clog << "Warning! Could not load window icon 'assets/icon/icon.bmp': " << SDL_GetError() << "\n";
     }
+
+    return true;
 }
 
 
-Window::~Window(){
+void Window::free(){
     SDL_DestroyWindow(ptr);
 }
 

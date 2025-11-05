@@ -8,12 +8,12 @@
 
 class Renderer{
 public:
-    Renderer(const Window &window);
-    ~Renderer();
+    bool init(const Window &window);
+    void free();
     void render(const A_Star &a_star);
 private:
     SDL_Renderer *ptr;
-    const Window &window;
+    SDL_Window *win_ptr;    // pointing to window->ptr and freed by Window class
 };
 
 #endif // !RENDERER_H

@@ -2,7 +2,11 @@
 
 #include "../config.hpp"
 
-Input::Input() noexcept : command{ false } {}
+#include <cstring>
+
+void Input::init(){
+    memset(command, false, Commands::TOTAL * sizeof(bool));
+}
 
 void Input::poll(const SDL_Event &event){
     switch(event.type){

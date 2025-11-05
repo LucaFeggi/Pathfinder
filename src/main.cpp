@@ -4,12 +4,10 @@
 #include <exception>
 
 int main(int argc, char **argv){
-	try{
-		App app;
+	App app;
+	if(app.init()){
 		app.run();
-	}catch(const std::exception &e){
-		std::cerr << "Fatal error! " << e.what() << "\n";
-		return -1;
+		app.free();
 	}
 	return 0;
 }

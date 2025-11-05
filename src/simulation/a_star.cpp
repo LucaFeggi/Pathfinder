@@ -23,7 +23,9 @@ struct Parent{
     bool has_parent;
 };
 
-A_Star::A_Star() noexcept : found{ false } {}
+void A_Star::init(){
+    found = false;
+}
 
 void A_Star::run(){
 

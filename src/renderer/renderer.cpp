@@ -2,17 +2,19 @@
 
 #include "../config.hpp"
 
-#include <string>
-#include <stdexcept>
+#include <iostream>
 
-Renderer::Renderer(const Window &window)
-    : window(window)
-{
-    ptr = SDL_CreateRenderer(window.get_ptr(), -1, SDL_RENDERER_ACCELERATED);
-    if(ptr == nullptr) throw std::runtime_error(std::string("Failed to create renderer: ") + SDL_GetError());
+bool Renderer::init(const Window &window){
+    win_ptr = window.get_ptr();
+    ptr = SDL_CreateRenderer(win_ptr, -1, SDL_RENDERER_ACCELERATED);
+    if(ptr == nullptr){
+        std::cerr << "Failed to create renderer: " << SDL_GetError() << "\n";
+        return false;
+    }
+    return true;
 }
 
-Renderer::~Renderer(){
+void Renderer::free(){
     SDL_DestroyRenderer(ptr);
 }
 
@@ -25,7 +27,7 @@ void Renderer::render(const A_Star &a_star){
 
     // dynamic scaling based on window size
     int w, h;
-    SDL_GetWindowSize(window.get_ptr(), &w, &h);
+    SDL_GetWindowSize(win_ptr, &w, &h);
     int center_x = w / 2;
     int center_y = h / 2;
     int viewport = center_x < center_y ? center_x : center_y;

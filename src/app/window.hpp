@@ -5,8 +5,8 @@
 
 class Window{
 public:
-	Window();
-	~Window();
+	bool init();
+	void free();
 	void show() const;
 	SDL_Window *get_ptr() const;
 private:

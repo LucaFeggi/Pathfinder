@@ -11,7 +11,7 @@ enum Commands{
 
 class Input{
 public:
-    Input() noexcept;
+    void init();
     void poll(const SDL_Event &event);
     bool is_command_active(const Commands comm) const;
     void set_command_active(const Commands comm);
