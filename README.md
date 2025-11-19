@@ -34,16 +34,16 @@ This approach facilitates extending the algorithm to handle full circuits with a
 Pathfinder
 │
 ├── src/
-│   ├── config.hpp
+│   ├── config.h
 │   ├── main.cpp
 │   ├── app/	
-│   │   ├── app.hpp / app.cpp
-│   │   ├── input.hpp / input.cpp
-│   │   └── window.hpp / window.cpp
+│   │   ├── app.h / app.cpp
+│   │   ├── input.h / input.cpp
+│   │   └── window.h / window.cpp
 │   ├── simulation/
-│   │   └── a_star.hpp / a_star.cpp
+│   │   └── a_star.h / a_star.cpp
 │   └── renderer/
-│   	  └── renderer.hpp / renderer.cpp
+│   	  └── renderer.h / renderer.cpp
 ├── assets/
 │   └── icon/
 │       └── icon.bmp
