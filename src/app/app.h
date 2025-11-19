@@ -1,11 +1,11 @@
 #ifndef APP_H
 #define APP_H
 
-#include "input.hpp"
-#include "window.hpp"
+#include "input.h"
+#include "window.h"
 
-#include "../simulation/a_star.hpp"
-#include "../renderer/renderer.hpp"
+#include "../simulation/a_star.h"
+#include "../renderer/renderer.h"
 
 class App{
 public:
