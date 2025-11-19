@@ -1,6 +1,6 @@
-#include "input.hpp"
+#include "input.h"
 
-#include "../config.hpp"
+#include "../config.h"
 
 #include <cstring>
 

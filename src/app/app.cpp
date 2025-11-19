@@ -1,6 +1,6 @@
-#include "app.hpp"
+#include "app.h"
 
-#include "../config.hpp"
+#include "../config.h"
 
 #include <iostream>
 

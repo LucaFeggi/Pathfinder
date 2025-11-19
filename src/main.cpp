@@ -1,4 +1,4 @@
-#include "app/app.hpp"
+#include "app/app.h"
 
 #include <iostream>
 #include <exception>

@@ -1,8 +1,8 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "../app/window.hpp"
-#include "../simulation/a_star.hpp"
+#include "../app/window.h"
+#include "../simulation/a_star.h"
 
 #include "SDL.h"
 

@@ -1,6 +1,6 @@
-#include "renderer.hpp"
+#include "renderer.h"
 
-#include "../config.hpp"
+#include "../config.h"
 
 #include <iostream>
 

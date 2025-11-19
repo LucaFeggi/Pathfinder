@@ -7,8 +7,8 @@ A C++ implementation of the **A*** pathfinding algorithm, visualized using **SDL
 # 📖 Description
 
 This project implements a visual simulation of the A* pathfinding algorithm over a circular 2D grid, rendered in real time using SDL2.
-The system represents a circular path using discrete Cartesian coordinates, enabling the A* algorithm to operate as it would on a standard 2D grid while maintaining the curvature of the path. This approach facilitates extending the algorithm to handle full circuits with arbitrary shapes,
-since the underlying computations are not tied to a specific coordinate system.
+The system represents a circular path using discrete Cartesian coordinates, enabling the A* algorithm to operate as it would on a standard 2D grid while maintaining the curvature of the path.
+This approach facilitates extending the algorithm to handle full circuits with arbitrary shapes, since the underlying computations are not tied to a specific coordinate system.
 
 ---
 

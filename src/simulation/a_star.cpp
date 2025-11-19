@@ -1,6 +1,6 @@
-#include "a_star.hpp"
+#include "a_star.h"
 
-#include "../config.hpp"
+#include "../config.h"
 
 #include <queue>
 #include <cmath>
