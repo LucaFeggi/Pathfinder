@@ -14,7 +14,7 @@ This approach facilitates extending the algorithm to handle full circuits with a
 
 ## 🚀 Features
 
-- Fully configurable parameters via `config.hpp`  
+- Fully configurable parameters via `config.h`  
 - Resizeable window
 
 ---
