@@ -26,12 +26,6 @@ cmake --workflow --preset pathfinder-debug
 cmake --workflow --preset pathfinder-release
 ```
 
-Ninja selects the parallel job count automatically based on the host machine.
-
-Builds are incremental. Reusing the same preset keeps the existing Ninja build
-database, so unmodified sources are not rebuilt. Debug and release builds use
-separate build directories.
-
 ## Run
 
 From the repository root:
