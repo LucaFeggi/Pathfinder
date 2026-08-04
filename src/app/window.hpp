@@ -1,5 +1,5 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#ifndef WINDOW_HPP
+#define WINDOW_HPP
 
 #include "SDL.h"
 
@@ -13,4 +13,4 @@ private:
 	SDL_Window *ptr = nullptr;
 };
 
-#endif	// !WINDOW_H
+#endif	// !WINDOW_HPP

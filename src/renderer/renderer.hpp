@@ -1,8 +1,8 @@
-#ifndef RENDERER_H
-#define RENDERER_H
+#ifndef RENDERER_HPP
+#define RENDERER_HPP
 
-#include "../app/window.h"
-#include "../simulation/a_star.h"
+#include "../app/window.hpp"
+#include "../simulation/a_star.hpp"
 
 #include "SDL.h"
 
@@ -16,4 +16,4 @@ private:
     SDL_Window *win_ptr = nullptr;    // pointing to window->ptr and freed by Window class
 };
 
-#endif // !RENDERER_H
+#endif // !RENDERER_HPP

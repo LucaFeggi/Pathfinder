@@ -1,5 +1,5 @@
-#ifndef INPUT_H
-#define INPUT_H
+#ifndef INPUT_HPP
+#define INPUT_HPP
 
 #include <array>
 
@@ -21,4 +21,4 @@ private:
     std::array<bool, Commands::TOTAL> command{};
 };
 
-#endif // !INPUT_H
+#endif // !INPUT_HPP

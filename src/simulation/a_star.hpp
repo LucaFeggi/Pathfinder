@@ -1,5 +1,5 @@
-#ifndef A_STAR_H
-#define A_STAR_H
+#ifndef A_STAR_HPP
+#define A_STAR_HPP
 
 #include <vector>
 #include <utility>
@@ -25,4 +25,4 @@ private:
     bool found = false;
 };
 
-#endif // !A_STAR_H
+#endif // !A_STAR_HPP

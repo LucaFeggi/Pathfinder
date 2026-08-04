@@ -1,4 +1,4 @@
-#include "input.h"
+#include "input.hpp"
 
 void Input::poll(const SDL_Event &event){
     switch(event.type){

@@ -1,5 +1,5 @@
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef CONFIG_HPP
+#define CONFIG_HPP
 
 // ==================== Simulation Settings ====================
 // Change these values to control the path shape, resolution, and start/end positions
@@ -19,4 +19,4 @@ constexpr float ANGLE = 3.14159f; // Total angle of the path in radians (pi -> s
 // Change this value to scale the rendered coordinates to window size
 constexpr float scaler = 11.0f;
 
-#endif // CONFIG_H
+#endif // CONFIG_HPP
