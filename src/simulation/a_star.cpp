@@ -1,11 +1,11 @@
-#include "a_star.hpp"
+#include "a_star.h"
 
-#include "../config.hpp"
+#include "../config.h"
 
-#include <queue>        // for std::priority_queue
-#include <cmath>        // for std::cos, std::sin, std::hypot
-#include <limits>       // for std::numeric_limits
-#include <algorithm>    // for std::reverse
+#include <queue>
+#include <cmath>
+#include <limits>
+#include <algorithm>
 
 struct Node{
     int x;      // grid coord
@@ -22,8 +22,6 @@ struct Parent{
     int y;  // parent node grid coord y
     bool has_parent;
 };
-
-A_Star::A_Star() : found(false) {}
 
 void A_Star::run(){
 

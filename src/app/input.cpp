@@ -1,8 +1,4 @@
-#include "input.hpp"
-
-#include "../config.hpp"
-
-Input::Input() : command{ false } {}
+#include "input.h"
 
 void Input::poll(const SDL_Event &event){
     switch(event.type){

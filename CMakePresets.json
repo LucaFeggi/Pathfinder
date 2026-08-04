@@ -1,0 +1,74 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 25,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "pathfinder-debug",
+            "displayName": "Pathfinder Debug",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/.build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_C_COMPILER": "gcc",
+                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_C_FLAGS_DEBUG": "-O0 -g",
+                "CMAKE_CXX_FLAGS_DEBUG": "-O0 -g"
+            }
+        },
+        {
+            "name": "pathfinder-release",
+            "displayName": "Pathfinder Release",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/.build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_C_COMPILER": "gcc",
+                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_C_FLAGS_RELEASE": "-O3 -DNDEBUG",
+                "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "pathfinder-debug",
+            "configurePreset": "pathfinder-debug"
+        },
+        {
+            "name": "pathfinder-release",
+            "configurePreset": "pathfinder-release"
+        }
+    ],
+    "workflowPresets": [
+        {
+            "name": "pathfinder-debug",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "pathfinder-debug"
+                },
+                {
+                    "type": "build",
+                    "name": "pathfinder-debug"
+                }
+            ]
+        },
+        {
+            "name": "pathfinder-release",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "pathfinder-release"
+                },
+                {
+                    "type": "build",
+                    "name": "pathfinder-release"
+                }
+            ]
+        }
+    ]
+}

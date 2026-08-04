@@ -1,11 +1,14 @@
-#include "renderer.hpp"
+#include "renderer.h"
 
-#include "../config.hpp"
+#include "../config.h"
+
+#include <iostream>
 
 bool Renderer::init(const Window &window){
-    ptr = SDL_CreateRenderer(window.get_ptr(), -1, SDL_RENDERER_ACCELERATED);
+    win_ptr = window.get_ptr();
+    ptr = SDL_CreateRenderer(win_ptr, -1, SDL_RENDERER_ACCELERATED);
     if(ptr == nullptr){
-        SDL_Log("Could not create renderer: %s", SDL_GetError());
+        std::cerr << "Failed to create renderer: " << SDL_GetError() << "\n";
         return false;
     }
     return true;
@@ -16,14 +19,10 @@ void Renderer::free(){
         SDL_DestroyRenderer(ptr);
         ptr = nullptr;
     }
+    win_ptr = nullptr;
 }
 
-void Renderer::render(const Window &window, const A_Star &a_star){
-    if(ptr == nullptr){
-        SDL_Log("Cannot render! Renderer was not created: %s", SDL_GetError());
-        return;
-    }
-
+void Renderer::render(const A_Star &a_star){
     SDL_SetRenderDrawColor(ptr, 0, 0, 0, 255);
     SDL_RenderClear(ptr);
 
@@ -32,7 +31,7 @@ void Renderer::render(const Window &window, const A_Star &a_star){
 
     // dynamic scaling based on window size
     int w, h;
-    SDL_GetWindowSize(window.get_ptr(), &w, &h);
+    SDL_GetWindowSize(win_ptr, &w, &h);
     int center_x = w / 2;
     int center_y = h / 2;
     int viewport = center_x < center_y ? center_x : center_y;

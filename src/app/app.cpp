@@ -1,21 +1,30 @@
-#include "app.hpp"
+#include "app.h"
 
-#include "../config.hpp"
+#include "../config.h"
+
+#include <iostream>
 
 #include "SDL.h"
 
 bool App::init(){
 	if(SDL_Init(SDL_INIT_VIDEO) != 0){
-		SDL_Log("Error: failed to initialize SDL %s", SDL_GetError());
-		return false;
+		std::cerr << "Failed to initialize SDL: " << SDL_GetError() << "\n";
+		goto sdl_fail;
 	}
-	if(!window.init()) return false;
-	if(!renderer.init(window)) return false;
+	if(!window.init()) goto window_fail;
+	if(!renderer.init(window)) goto renderer_fail;
 
 	a_star.run();
 	window.show();
-	renderer.render(window, a_star);
+	renderer.render(a_star);
 	return true;
+
+renderer_fail:
+	window.free();
+window_fail:
+	SDL_Quit();
+sdl_fail:
+	return false;
 }
 
 void App::free(){
@@ -33,7 +42,7 @@ void App::run(){
 				return;
 			}
 			if(input.is_command_active(Commands::RENDER)){
-				renderer.render(window, a_star);
+				renderer.render(a_star);
 				input.set_command_inactive(Commands::RENDER);
 			}
 		}

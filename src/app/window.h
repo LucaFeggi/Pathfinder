@@ -10,7 +10,7 @@ public:
 	void show() const;
 	SDL_Window *get_ptr() const;
 private:
-	SDL_Window *ptr;
+	SDL_Window *ptr = nullptr;
 };
 
 #endif	// !WINDOW_H

@@ -1,8 +1,8 @@
 #ifndef A_STAR_H
 #define A_STAR_H
 
-#include <vector>   // for std::vector
-#include <utility>  // for std::pair
+#include <vector>
+#include <utility>
 
 /*
 Note: The algorithm is implemented using cartesian coordinates rather than polar coordinates, even though the path is circular.
@@ -14,7 +14,6 @@ Finally, it avoids complications with angular wrapping and variable arc lengths 
 
 class A_Star{
 public:
-    A_Star();
     void run();
     // Data accessors for rendering
     const std::vector<std::vector<std::pair<float, float>>> &get_node_coordinates() const;
@@ -23,7 +22,7 @@ public:
 private:
     std::vector<std::vector<std::pair<float, float>>> node_coords; // 2D grid of points, each point has a (x,y) coord
     std::vector<std::pair<int, int>> path;  // 2D vector to store the grid points (just the indices, not the coords) for the path
-    bool found;
+    bool found = false;
 };
 
 #endif // !A_STAR_H

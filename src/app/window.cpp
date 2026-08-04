@@ -1,25 +1,22 @@
-#include "window.hpp"
+#include "window.h"
+
+#include <iostream>
 
 bool Window::init(){
     SDL_DisplayMode dm;
     int w, h;
     if(SDL_GetCurrentDisplayMode(0, &dm) != 0){
-        SDL_Log("Warning: Could not get display mode: %s", SDL_GetError());
-        w = 1280;
-        h = 720;
+        std::clog << "Warning! Could not get display mode: " << SDL_GetError() << "\n";
+        w = 1280; h = 720;
     }
     else {
-        w = (int)(dm.w * 0.667f);
-        h = (int)(dm.h * 0.667f);
+        w = static_cast<int>(dm.w * 0.667f);
+        h = static_cast<int>(dm.h * 0.667f);
     }
 
-    ptr = SDL_CreateWindow(
-        "Pathfinder",
-        SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h,
-        SDL_WINDOW_RESIZABLE | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_HIDDEN
-    );
+    ptr = SDL_CreateWindow("Pathfinder", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, SDL_WINDOW_RESIZABLE | SDL_WINDOW_INPUT_FOCUS | SDL_WINDOW_HIDDEN);
     if(ptr == nullptr){
-        SDL_Log("Error: Could not create window: %s", SDL_GetError());
+        std::cerr << "Failed to create window: " << SDL_GetError() << "\n";
         return false;
     }
 
@@ -31,10 +28,12 @@ bool Window::init(){
         SDL_FreeSurface(icon);
     }
     else{
-        SDL_Log("Warning: Could not load window icon 'res/bpm/icon.bmp': %s", SDL_GetError());
+        std::clog << "Warning! Could not load window icon 'assets/icon/icon.bmp': " << SDL_GetError() << "\n";
     }
+
     return true;
 }
+
 
 void Window::free(){
     if(ptr != nullptr){
